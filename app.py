@@ -2,7 +2,7 @@ import re
 
 while True:
     arg = input('Entrer votre argent: ')
-    while not re.match(r'^\d+$', arg):
+    while not re.match(r'^\d+$', str(int(arg))):
         arg = input('(error) Entrer votre argent: ')
     arg = str(int(arg))
     
