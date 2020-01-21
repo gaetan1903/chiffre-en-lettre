@@ -6,13 +6,10 @@ while True:
         arg = input('(error) Entrer votre argent: ')
     arg = str(int(arg))
     
-
     unite =  ['', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix',
                 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf']
 
     dizaine = [None, None, 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante-dix', 'quatre-vingt', 'quatre-vingt-dix']
-
-    # autre = ['cent', 'mille', 'millions', 'milliards']
 
     def prints(arg): print(" ".join(arg.split()))
 
@@ -43,22 +40,18 @@ while True:
 
 
     def func_millieme(arg):
-        if int(arg[0]) == 0: return main((arg[1:]))
+        if int(arg[0]) == 0: return main(arg[1:])
 
         if len(arg) == 4:
-            if int(arg[0]) == 0: return func_centaine(arg[1:])
-
             if int(arg[0]) == 1: 
                 return 'mille ' + func_centaine(arg[1:])
             else: 
                 return unite[int(arg[0])] + ' milles ' + func_centaine(arg[1:])
 
         elif len(arg) == 5:
-            # if int(arg[0]) == 0: return func_centaine(arg[2:])
             return func_dizaine(arg[:2]) + ' milles ' + func_centaine(arg[2:])
         
         elif len(arg) == 6:
-            # if int(arg[0]) == 0: return func_centaine(arg[3:])
             return func_centaine(arg[:3]) + ' milles ' + func_centaine(arg[3:])
     
 
@@ -66,19 +59,15 @@ while True:
         if int(arg[0]) == 0: return main(arg[1:])
 
         if len(arg) == 7:
-            # if int(arg[0]) == 0: return func_millieme(arg[1:])
-
             if int(arg[0]) == 1: 
                 return 'un million ' + func_millieme(arg[1:])
             else: 
                 return unite[int(arg[0])] + ' millions ' + func_millieme(arg[1:])
 
         elif len(arg) == 8:
-            # if int(arg[0]) == 0: return func_millieme(arg[2:])
             return func_dizaine(arg[:2]) + ' millions ' + func_millieme(arg[2:])
         
         elif len(arg) == 9:
-            # if int(arg[0]) == 0: return func_millieme(arg[3:])
             return func_centaine(arg[:3]) + ' millions ' + func_millieme(arg[3:])
 
 
@@ -101,7 +90,6 @@ while True:
             return main(arg[:len(arg)-9]) + ' milliards ' + func_million(arg[len(arg)-9:])
 
 
-
     def main(arg):
         if len(arg) == 1: return func_unite(arg)
 
@@ -121,10 +109,3 @@ while True:
     
     
     prints(main(arg))
-    
-        
-
-    
-
-
-
